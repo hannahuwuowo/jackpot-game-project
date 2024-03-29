@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jackpot Slot Machine Game</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: yellow;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        .slot-container {
+            width: 120px;
+            height: 120px;
+            border: 5px solid white;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            margin: 0 10px;
+        }
+        .slot {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 36px;
+            font-weight: bold;
+            color: white;
+            background-color: #333;
+            border-radius: 5px;
+        }
+        .slots {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            height: 120px;
+            width: 360px;
+        }
+        .slot-spin {
+            animation: slot-spin 3s linear infinite;
+        }
+        .handle {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-top-left-radius: 50px;
+            border-bottom-left-radius: 50px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            padding-bottom: 10px;
+            transition: transform 0.3s;
+        }
+        .handle:hover {
+            transform: translateX(-10px);
+        }
+        .handle::before {
+            content: "";
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+            top: -10px;
+            right: 50%;
+            transform: translateX(50%);
+        }
+        .handle::after {
+            content: "";
+            width: 100px;
+            height: 20px;
+            background-color: red;
+            position: absolute;
+            top: -20px;
+            right: 0;
+        }
+        .btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            background-color: #218838;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-transform: uppercase;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: #1e7e34;
+        }
+        @keyframes slot-spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jackpot Slot Machine Game</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: yellow;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+        }
+        .slot-container {
+            width: 120px;
+            height: 120px;
+            border: 5px solid white;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            margin-right: 10px; /* Adjust margin here */
+            margin-left: 10px; /* Adjust margin here */
+        }
+        .slot {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 36px; /* Adjust font size here */
+            font-weight: bold;
+            color: white;
+            background-color: #333;
+            border-radius: 5px;
+            position: absolute;
+        }
+        #result {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        #jackpot-container {
+            position: relative;
+        }
+        #jackpot {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+        .handle {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-top-left-radius: 50px;
+            border-bottom-left-radius: 50px;
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            padding-bottom: 10px;
+        }
+        .handle::before {
+            content: "";
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+            top: -10px;
+            right: 50%;
+            transform: translateX(50%);
+        }
+        .handle::after {
+            content: "";
+            width: 100px;
+            height: 20px;
+            background-color: red;
+            position: absolute;
+            top: -20px;
+            right: 0;
+        }
+        .btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            background-color: #218838;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-transform: uppercase;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: #1e7e34;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Welcome to the Jackpot Slot Machine Game!</h1>
+
+<div class="container">
+    <div class="slot-container" id="slot1-container">
+        <div class="slot" id="slot1"></div>
+    </div>
+    <div class="slot-container" id="slot2-container">
+        <div class="slot" id="slot2"></div>
+    </div>
+    <div class="slot-container" id="slot3-container">
+        <div class="slot" id="slot3"></div>
+    </div>
+    <div class="handle" onclick="playRound()"></div>
+</div>
+
+<div id="jackpot-container">
+    <div id="jackpot">$</div>
+</div>
+
+<div id="result"></div>
+
+<label for="bet-input">Bet Size: $</label>
+<input type="number" id="bet-input" placeholder="Enter your bet" min="1" step="1">
+
+<div>
+    <p>Current Balance: $<span id="current-balance">1000</span></p>
+    <p>Amount Won: $<span id="amount-won">0</span></p>
+</div>
+
+<script>
+    const symbols = ['🍒', '🍇', '🍊', '🍋', '🍉', '🍓', '7️⃣'];
+
+    function getRandomSymbol() {
+        return symbols[Math.floor(Math.random() * symbols.length)];
+    }
+
+    function shuffleSymbols() {
+        const delay = 100; // Delay between symbol changes in milliseconds
+        const slots = document.querySelectorAll('.slot');
+        const symbolsCount = symbols.length;
+        const iterations = 10; // Number of iterations for shuffling
+
+        for (let i = 0; i < iterations; i++) {
+            setTimeout(() => {
+                slots.forEach(slot => {
+                    slot.textContent = symbols[Math.floor(Math.random() * symbolsCount)];
+                });
+            }, delay * i);
+        }
+
+        // Set final symbols after shuffling iterations
+        setTimeout(() => {
+            slots.forEach(slot => {
+                slot.textContent = getRandomSymbol();
+            });
+        }, delay * iterations);
+    }
+
+    function playRound() {
+        const betInput = document.getElementById('bet-input');
+        const resultDiv = document.getElementById('result');
+        const jackpot = document.getElementById('jackpot');
+        const currentBalance = document.getElementById('current-balance');
+        const amountWonDisplay = document.getElementById('amount-won');
+
+        const betAmount = parseFloat(betInput.value);
+        const balance = parseFloat(currentBalance.innerText);
+
+        if (isNaN(betAmount) || betAmount <= 0 || betAmount > balance) {
+            resultDiv.innerText = "Invalid bet amount. Please enter a valid value.";
+            return;
+        }
+
+        // Simulate the spinning of the slots
+        shuffleSymbols();
+
+        setTimeout(() => {
+            // Check if the player wins
+            const win = checkWin();
+
+            if (win) {
+                const amountWon = betAmount * 2;
+                currentBalance.innerText = balance + amountWon;
+                resultDiv.innerText = `Congratulations! You won $${amountWon.toFixed(2)}!`;
+                amountWonDisplay.innerText = amountWon.toFixed(2);
+            } else {
+                currentBalance.innerText = balance - betAmount;
+                resultDiv.innerText = `Sorry, you lost. Try again!`;
+                amountWonDisplay.innerText = '0';
+            }
+
+            // Reset jackpot display
+            jackpot.innerText = "$";
+        }, 3000); // Spinning for 3 seconds
+    }
+
+    function checkWin() {
+        const slot1 = document.getElementById('slot1').textContent;
+        const slot2 = document.getElementById('slot2').textContent;
+        const slot3 = document.getElementById('slot3').textContent;
+
+        return (slot1 === slot2 && slot2 === slot3);
+    }
+
+    // Initial symbols
+    document.getElementById('slot1').innerText = getRandomSymbol();
+    document.getElementById('slot2').innerText = getRandomSymbol();
+    document.getElementById('slot3').innerText = getRandomSymbol();
+</script>
+
+</body>
+</html>
